@@ -1,16 +1,17 @@
 class RequestsController < ApplicationController
   def index
   end
-
-  def create
-    
-  end
-
   def destroy
   end
 
+  def create
+    @receiver = current_user
+    @receiver.requests.create!(permitted_params)
+  end
+
+
   private
  def permitted_params
-  params.require(:request).permit(:request_sender_id,:request_receiver_id)
+  params.require(:request).permit(:request_sender_id)
  end
 end
