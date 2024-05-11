@@ -5,5 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :authentication_keys => [:email,:username]
 # has_many :posts
 has_many :friends, class_name: "User"
-has_many :requests
+has_many :requests, foreign_key: 'request_receiver_id'
 end
