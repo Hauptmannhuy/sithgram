@@ -1,0 +1,15 @@
+<% @users.each do |user|%>
+<ul> 
+  
+  <li>
+    <%= user.username%>
+    <%= form_with url: friends_requests_path, method: :post do |f|%>
+    <%= f.hidden_field :requested_sender_id, value: current_user.id %>
+    <%= f.hidden_field :request_receiver_id, value: user.id%>
+    <%= f.submit "Add Friend", class: "btn btn-primary" %>
+    <% end%>
+  </li>
+
+</ul>
+
+<%end%>
