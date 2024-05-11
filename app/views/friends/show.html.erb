@@ -1,0 +1,7 @@
+<div class="friends-panel">
+  <%= link_to "Friends", friends_list_path, data: { turbo_frame: "list-region" } %>
+  <%= link_to "Pending requests", friends_requests_path, data: { turbo_frame: "list-region" } %>
+<%= turbo_frame_tag id="list-region" do %>
+  List of friends
+<%end%>
+</div>
