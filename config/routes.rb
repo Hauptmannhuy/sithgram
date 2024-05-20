@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'friendship/create'
+  get 'friendship/destroy'
   get 'requests/index'
   get 'requests/create'
   get 'requests/destroy'
@@ -13,6 +15,7 @@ Rails.application.routes.draw do
     resource :friends, only: [:destroy,:show] do 
      resources :requests, only: [:index, :create,:destroy] 
     end
+    resources :friendships, only: [:create,:destroy]
 
 
   root "users#index"

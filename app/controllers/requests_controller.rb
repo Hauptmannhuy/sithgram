@@ -2,13 +2,13 @@ class RequestsController < ApplicationController
   def index
     @user = current_user
     @requests = current_user.requests
+    @friendship = Friendship.new
   end
   def destroy
   end
 
   def create
     @receiver = User.find(permitted_params[:request_receiver_id])
-    binding.pry
     @receiver.requests.create!(permitted_params)
   end
 
