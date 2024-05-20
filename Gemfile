@@ -69,3 +69,6 @@ end
 gem "devise", "~> 4.9"
 
 gem "pry-byebug", "~> 3.10"
+group :development, :test do
+  gem 'rspec-rails', '~> 6.1.0'
+end
