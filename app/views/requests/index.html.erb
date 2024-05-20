@@ -1,3 +1,14 @@
 <%= turbo_frame_tag id="list-region" do %>
 List of friend requests
+<% @requests.each do |request|%>
+<ul> 
+  1
+  <div>
+  <li> <%="#{User.find(request.request_sender_id).username}"%>  </li>
+
+  </div>
+</ul>
+<%end%>
+
+
 <%end%>

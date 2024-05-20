@@ -4,6 +4,7 @@
   <li>
     <%= user.username%>
     <%= form_with url: friends_requests_path, method: :post do |f|%>
+        <%= hidden_field_tag 'request[request_receiver_id]', user.id %>
         <%= hidden_field_tag 'request[request_sender_id]', current_user.id %>
     <%= f.submit "Add Friend", class: "btn btn-primary" %>
     <% end%>
