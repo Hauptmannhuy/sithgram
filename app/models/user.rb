@@ -4,6 +4,17 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :authentication_keys => [:email,:username]
 # has_many :posts
-has_many :friends, class_name: "User"
 has_many :requests, foreign_key: 'request_receiver_id'
-end
+
+  def friendships
+    Friendship.where('friend_a_id = ? OR friend_b_id = ?',self.id,self.id)
+  end
+
+  def friends
+    ids_list = self.friendships.pluck.map do |el|
+    el[1] != self.id ? el[1] : el[2]
+    end
+    User.where(id:ids_list)
+  end
+
+  end
