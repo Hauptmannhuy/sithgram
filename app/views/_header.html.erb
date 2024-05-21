@@ -27,6 +27,9 @@
          <%= link_to "Sign In", new_user_session_path, class:"nav-link active"%>
         </li>
         <% end %>
+        <li class="nav-item">
+         <%= link_to "Profile", user_path(current_user.id), class:"nav-link active"%>
+        </li>
       </ul>
     </div>
   </div>

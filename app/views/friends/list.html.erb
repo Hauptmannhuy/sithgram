@@ -2,7 +2,7 @@
   <% current_user.friends.each do |fr| %>
     <ul>
         <li>    
-          <%= fr.username%>      
+          <%=link_to "#{fr.username}", user_path(fr.id), data: {turbo_frame: "_top"}%>     
         </li>
     </ul>
   <%end%>
