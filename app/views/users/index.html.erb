@@ -3,13 +3,12 @@
   
   <li>
     <%= user.username%>
-    <%= form_with url: friends_requests_path, method: :post do |f|%>
+    <%= form_with url: friends_requests_path, data: { controller: "button" } , method: :post do |f|%>
         <%= hidden_field_tag 'request[request_receiver_id]', user.id %>
         <%= hidden_field_tag 'request[request_sender_id]', current_user.id %>
-    <%= f.submit "Add Friend", class: "btn btn-primary" %>
-    <% end%>
+        <%= f.submit 'Add friend', class:'btn btn-primary', data:{action:'click->button#change',button_target:'btn'}%>
   </li>
-
+<%end%>
 </ul>
 
 <%end%>
