@@ -24,7 +24,7 @@ has_many :requests, foreign_key: 'request_receiver_id'
 
   def find_not_friends_of_user
     list = self.friends_ids
-    User.where('id != ? AND id != ?',list, self.id)
+    User.where('id != ? AND id != ?',list.empty? ? self.id : list, self.id)
   end
 
   end

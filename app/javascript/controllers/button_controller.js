@@ -4,7 +4,12 @@ export default class extends Controller {
   static targets = ["btn"]
 
   change() {
-    this.btnTarget.value = 'Added!'
+    if (this.btnTarget.value == 'Add friend'){
+      this.btnTarget.value = 'Added!'
+    }
+    else if (this.btnTarget.value == 'Accept request'){
+      this.btnTarget.value = 'Accepted!'
+    }  
     setTimeout(() => {
       this.btnTarget.setAttribute = ('readonly','true')
     }, 500);
