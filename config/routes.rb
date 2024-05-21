@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'posts/index'
+  get 'posts/destroy'
+  get 'posts/edit'
   get 'friendship/create'
   get 'friendship/destroy'
   get 'requests/index'
@@ -16,7 +19,7 @@ Rails.application.routes.draw do
      resources :requests, only: [:index, :create,:destroy] 
     end
     resources :friendships, only: [:create,:destroy]
-
+    resources :posts
 
   root "users#index"
   # Defines the root path route ("/")

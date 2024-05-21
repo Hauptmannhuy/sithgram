@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :authentication_keys => [:email,:username]
-# has_many :posts
+has_many :posts
 has_many :requests, foreign_key: 'request_receiver_id'
 
   def friendships
