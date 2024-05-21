@@ -1,3 +1,9 @@
 <%= turbo_frame_tag id="list-region" do %>
-List of friends turbo
+  <% current_user.friends.each do |fr| %>
+    <ul>
+        <li>    
+          <%= fr.username%>      
+        </li>
+    </ul>
+  <%end%>
 <%end%>

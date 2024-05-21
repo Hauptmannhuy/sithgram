@@ -17,4 +17,8 @@ has_many :requests, foreign_key: 'request_receiver_id'
     User.where(id:ids_list)
   end
 
+  def is_friend_with?
+    
+  end
+
   end
