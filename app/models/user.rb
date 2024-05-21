@@ -27,4 +27,9 @@ has_many :requests, foreign_key: 'request_receiver_id'
     User.where('id != ? AND id != ?',list.empty? ? self.id : list, self.id)
   end
 
+  def posts
+    list = self.friends_ids << self.id
+    Post.where(user_id: list)
+  end
+
   end
