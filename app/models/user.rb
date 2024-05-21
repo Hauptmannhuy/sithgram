@@ -10,15 +10,21 @@ has_many :requests, foreign_key: 'request_receiver_id'
     Friendship.where('friend_a_id = ? OR friend_b_id = ?',self.id,self.id)
   end
 
-  def friends
+  def friends_ids
     ids_list = self.friendships.pluck.map do |el|
     el[1] != self.id ? el[1] : el[2]
     end
-    User.where(id:ids_list)
+    ids_list
   end
 
-  def is_friend_with?
-    
+  def friends
+    list = friends_ids
+    User.where(id:list)
+  end
+
+  def find_not_friends_of_user
+    list = self.friends_ids
+    User.where('id != ? AND id != ?',list, self.id)
   end
 
   end

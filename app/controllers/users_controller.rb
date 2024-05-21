@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def index
-    @users = User.all.where("id !=#{current_user.id}")
+    @users = current_user.find_not_friends_of_user
   end
 
 end
