@@ -10,7 +10,7 @@
       <div id='count'>
       Likes: <%= post.likes.count %>        
       </div> 
-      <%= button_to '♥'%>
+      <%= button_to '♥',likes_path('like' => {user_id:current_user.id,post_id:post.id})%>
     </div>
   <%end%>
 </div>
