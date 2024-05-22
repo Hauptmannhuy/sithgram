@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :authentication_keys => [:email,:username]
 has_many :posts
 has_many :requests, foreign_key: 'request_receiver_id'
-
+has_many :likes, through: :posts
   def friendships
     Friendship.where('friend_a_id = ? OR friend_b_id = ?',self.id,self.id)
   end

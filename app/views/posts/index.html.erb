@@ -7,6 +7,10 @@
       <p><%= 'Place for content'%></p>
       <p><%= post.body%></p>
       <p><%= 'Likes and comments'%></p>
+      <div id='count'>
+      Likes: <%= post.likes.count %>        
+      </div> 
+      <%= button_to '♥'%>
     </div>
   <%end%>
 </div>
