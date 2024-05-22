@@ -1,2 +1,12 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<div class='feed'>
+  <%= link_to 'New post', new_post_path%>
+  <%current_user.relative_posts.each do |post|%>
+  
+    <div id='post'>
+      <p><%= post.user.username%></p>
+      <p><%= 'Place for content'%></p>
+      <p><%= post.body%></p>
+      <p><%= 'Likes and comments'%></p>
+    </div>
+  <%end%>
+</div>
