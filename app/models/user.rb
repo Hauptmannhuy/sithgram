@@ -6,6 +6,8 @@ class User < ApplicationRecord
 has_many :posts
 has_many :requests, foreign_key: 'request_receiver_id'
 has_many :likes, through: :posts
+has_many :comments, through: :posts
+
   def friendships
     Friendship.where('friend_a_id = ? OR friend_b_id = ?',self.id,self.id)
   end
