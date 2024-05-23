@@ -1,15 +1,20 @@
 class LikesController < ApplicationController
-  def create
-    @like = Like.create(permitted_params)
-    @likes = Post.find(permitted_params[:post_id]).likes.count
-    
+  def add
+    Like.create(permitted_params)
+    @post = Post.find(permitted_params[:post_id])
+    @likes = @post.likes.count
     respond_to do |format|
-    format.turbo_stream { render turbo_stream: turbo_stream.update('count', @likes) }
+    format.turbo_stream
     end
   end
 
-  def destroy
-
+  def remove
+    Like.where(permitted_params).destroy_all
+    @post = Post.find(permitted_params[:post_id])
+    @likes = @post.likes.count
+    respond_to do |format|
+      format.turbo_stream
+      end
   end
   private
   def permitted_params

@@ -11,11 +11,12 @@ Rails.application.routes.draw do
     resources :requests, only: [:index, :create,:destroy] 
   end
   resources :friendships, only: [:create,:destroy]
-  resources :posts
+  resources :posts do 
+  end
+  # resources :likes, only: [:destroy, :create]
   
-  # post 'likes/add'
-  # post 'likes/remove'
-  resources :likes, only: [:destroy, :create]
+  post 'likes/add'
+  post 'likes/remove'
   root "users#index"
   # Defines the root path route ("/")
   # root "posts#index"

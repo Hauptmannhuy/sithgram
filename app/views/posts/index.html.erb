@@ -1,16 +1,20 @@
 <div class='feed'>
   <%= link_to 'New post', new_post_path%>
-  <%current_user.relative_posts.each do |post|%>
+  <%current_user.relative_posts.each_with_index do |post,index|%>
   
     <div id='post'>
       <p><%= post.user.username%></p>
       <p><%= 'Place for content'%></p>
       <p><%= post.body%></p>
-      <p><%= 'Likes and comments'%></p>
-      <div id='count'>
-      Likes: <%= post.likes.count %>        
-      </div> 
-      <%= button_to '♥',likes_path('like' => {user_id:current_user.id,post_id:post.id})%>
-    </div>
-  <%end%>
-</div>
+       <div id='count-<%=post.id%>'> <%="Likes: #{ post.likes.count}" %>  </div>
+       <div id='like-btn-<%=post.id%>'>
+         <% if post.user_liked?(current_user.id) %>
+      <%= button_to '♥',likes_remove_path('like' => {user_id:current_user.id,post_id:post.id}) %>
+        <%else%>
+      <%= button_to '♥',likes_add_path('like' => {user_id:current_user.id,post_id:post.id})  %>
+         <%end%>
+         </div>
+  </div>
+    <%end%>
+  </div>
+

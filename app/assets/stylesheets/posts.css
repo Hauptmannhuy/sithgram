@@ -4,6 +4,7 @@
   align-items: center;
 }
 
-/* #post {
-  
-} */
+ #post {
+  border: solid;
+  border-width: 1px;
+} 
