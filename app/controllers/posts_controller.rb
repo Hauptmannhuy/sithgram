@@ -1,6 +1,5 @@
 class PostsController < ApplicationController
   def index
-    @comment = Comment.new
   end
 
   def show
