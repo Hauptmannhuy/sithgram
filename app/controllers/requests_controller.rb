@@ -5,6 +5,7 @@ class RequestsController < ApplicationController
     @friendship = Friendship.new
   end
   def destroy
+   Request.destroy(params[:id]) 
   end
 
   def create
