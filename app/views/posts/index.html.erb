@@ -7,20 +7,9 @@
       <p><%= post.user.username%></p>
       <p><%= 'Place for content'%></p>
       <p><%= post.body%></p>
-       <div id='count-<%=@post_id%>'> <%="Likes: #{ post.likes.count}" %>  </div>
+       <div id='count-<%=@post_id%>'> <%="Likes: #{ @post.likes.count}" %>  </div>
        <%= render "/button_like"%>
-         <div id='comments'>
-            <%post.comments.each_with_index do |com,i|%>
-              <%="#{com.user.username}: #{com.body}"%>
-            <%end%>
-              <div class="comment-input"> 
-                <%= form_with model: [post, post.comments.build], method: :post do |f| %>
-                  <%= f.text_field :body, placeholder: 'Your comment...' %>
-                  <%= f.text_field :user_id, value:current_user.id, hidden: true %>
-                  <%= f.submit 'Create a comment' %>
-                <%end%>
-              </div>
-          </div>
+        <%= render "/comment_section"%>
   </div>
     <%end%>
   </div>

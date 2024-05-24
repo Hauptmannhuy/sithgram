@@ -1,8 +1,10 @@
 class CommentsController < ApplicationController
   def create
     @post = Post.find(params[:post_id])
-    @post.comments.create!(permitted_params)
-    redirect_to posts_path
+   @comment = @post.comments.create!(permitted_params)
+    respond_to do |format|
+      format.turbo_stream
+    end
   end
 
   def destroy
