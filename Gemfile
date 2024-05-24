@@ -72,3 +72,7 @@ gem "pry-byebug", "~> 3.10"
 group :development, :test do
   gem 'rspec-rails', '~> 6.1.0'
 end
+
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem "omniauth-rails_csrf_protection", "~> 1.0"
