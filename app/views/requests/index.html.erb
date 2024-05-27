@@ -1,16 +1,18 @@
 <%= turbo_frame_tag id="list-region" do %>
 List of friend requests
 
-<% @requests.each do |request|%>
+<% @requests.each_with_index do |request,i|%>
 <ul> 
   <div>
   <li> <%="#{User.find(request.request_sender_id).username}"%>  </li>
  <%= form_with model: @friendship, data:{ controller: "button" } , method: :post do |f|%>
     <%= hidden_field_tag 'friendship[friend_a_id]', current_user.id %>
     <%= hidden_field_tag 'friendship[friend_b_id]', request.request_sender_id %>
-    <%= f.submit "Accept request", class: "btn btn-primary", data:{action:'click->button#change',button_target:'btn'} %>
+    <%= f.submit "Accept request", class: "btn btn-primary",id:"accept-btn-#{i+1}", data:{action:'click->button#change',button_target:'btn',disable_with: 'Accepted'} %>
     <% end%>
-    <%= button_to "Decline request", friends_request_path(request.id),method: :delete, class: "btn btn-primary"%>
+    <%= form_with url: friends_request_path(request.id),data:{ controller: "button" }, method: :delete do |f|%>
+      <%= f.submit "Decline request",class: "btn btn-primary",disable_with: 'Declined',id:"decline-btn-#{i+1}", data:{action:'click->button#change',button_target:'btn',disable_with: 'Declined'} %>
+    <%end%>
   </div>
   
 </ul>

@@ -10,4 +10,4 @@
 User.create!(username:"Misha",email:"misha@email.com",password:'123456')
 User.create!(username:"Dima",email:"dima@email.com",password:'123456')
 User.create!(username:"Sasha",email:"sasha@email.com",password:'123456')
-User.create!(username:"dasha",email:"dasha@email.com",password:'123456')
+User.create!(username:"Dasha",email:"dasha@email.com",password:'123456')
