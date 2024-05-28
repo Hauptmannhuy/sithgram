@@ -5,7 +5,8 @@ class FriendshipsController < ApplicationController
   end
 
   def destroy
-
+    Friendship.destroy(params[:id])
+    redirect_to friends_list_url
   end
   private
   def permitted_params
