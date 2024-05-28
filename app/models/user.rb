@@ -6,6 +6,7 @@ class User < ApplicationRecord
         #  :authentication_keys => [:email,:username]
 has_many :posts
 has_many :requests, foreign_key: 'request_receiver_id'
+has_many :sent_requests, foreign_key: 'request_sender_id', class_name: 'Request'
 has_many :likes, through: :posts
 has_many :comments, through: :posts
 
@@ -34,6 +35,11 @@ has_many :comments, through: :posts
     list = self.friends_ids << self.id
     Post.where(user_id: list)
   end
+
+  # def requested?(sender_id)
+  #   receiver_id = self.id
+  #   self.requests.find_by(request_receiver_id: receiver_id, request_sender_id: sender_id).nil?
+  # end
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
