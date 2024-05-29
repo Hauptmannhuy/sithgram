@@ -1,9 +1,10 @@
 class PostsController < ApplicationController
   def index
+    @posts = current_user.relative_posts
   end
 
   def show
-
+   
   end
 
   def new

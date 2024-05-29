@@ -1,6 +1,6 @@
 <div class='feed'>
   <%= link_to 'New post', new_post_path%>
-  <%current_user.relative_posts.each_with_index do |post,index|%>
+  <%@posts.each_with_index do |post,index|%>
     <%@post_id = post.id%>
     <%@post = post%>
     <div id='post'>

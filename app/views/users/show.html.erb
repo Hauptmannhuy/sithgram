@@ -1,1 +1,16 @@
 <%= "#{@user.username} page "%>
+
+<div class='feed'>
+  <%@posts.each_with_index do |post,index|%>
+    <%@post_id = post.id%>
+    <%@post = post%>
+    <div id='post'>
+      <p><%= 'Place for content'%></p>
+      <p><%= post.body%></p>
+       <div id='count-<%=@post_id%>'> <%="Likes: #{ @post.likes.count}" %>  </div>
+       <%= render "/button_like"%>
+        <%= render "/comment_section"%>
+  </div>
+    <%end%>
+  </div>
+
