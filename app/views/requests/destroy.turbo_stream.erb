@@ -1,0 +1,9 @@
+<%= turbo_stream.update("button-request-panel-#{@post_id}") do %>
+         <%= form_with url: friends_requests_path , method: :post do |f|%>
+          <%= hidden_field_tag 'request[request_receiver_id]', @user_id %>
+          <%= hidden_field_tag 'request[request_sender_id]', current_user.id %>
+          <%= hidden_field_tag 'post_id', @post_id%>
+          <%= f.submit 'Add friend', class:'btn btn-primary'%>
+          <%end%>
+<%end%>
+     

@@ -35,12 +35,7 @@ has_many :comments, through: :posts
     list = self.friends_ids << self.id
     Post.where(user_id: list)
   end
-
-  # def requested?(sender_id)
-  #   receiver_id = self.id
-  #   self.requests.find_by(request_receiver_id: receiver_id, request_sender_id: sender_id).nil?
-  # end
-
+  
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email

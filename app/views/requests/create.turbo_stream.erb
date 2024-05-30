@@ -1,0 +1,7 @@
+<%= turbo_stream.update("button-request-panel-#{@post_id}") do %>
+    <%= form_with url: friends_request_path(@request.id),method: :delete do |f| %>
+    <%= hidden_field_tag 'post_id', @post_id%> 
+    <%= hidden_field_tag 'user_id', @user_id%> 
+    <%= f.submit 'Cancel request',class:'btn btn-primary' %> 
+  <%end%>
+<%end%>  
