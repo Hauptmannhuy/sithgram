@@ -1,5 +1,9 @@
-<%= "#{@user.username} page "%>
-
+<div id="personal-info">
+  <%= image_tag(@user.avatar_url)%>
+  <%= "#{@user.username} page "%>
+  <%= "Publications: #{@posts.count}"%>
+  <%= "Friends: #{@friends}"%>
+</div>
 <div class='feed'>
   <%@posts.each_with_index do |post,index|%>
     <%@post_id = post.id%>
