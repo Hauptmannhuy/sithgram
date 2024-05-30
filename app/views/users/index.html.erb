@@ -10,6 +10,8 @@
           <%= hidden_field_tag 'user_id', user.id%>
           <%= f.submit 'Cancel request',class:'btn btn-primary' %>
         <%end%>
+        <%elsif @pending_users.include?(user.id)%>
+        <button disabled='true' class='btn btn-primary'> Pending to accept </button>
       <%else %>
       <%= form_with url: friends_requests_path, method: :post do |f|%>
           <%= hidden_field_tag 'request[request_receiver_id]', user.id %>
