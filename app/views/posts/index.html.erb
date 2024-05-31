@@ -5,7 +5,11 @@
     <%@post = post%>
     <div id='post'>
       <p><%= post.user.username%></p>
-      <p><%= 'Place for content'%></p>
+      <% if post.images.attached?%>
+        <% post.images.each do |file|%>
+          <%= image_tag file.variant(resize_to_limit: [100, 100]) %>
+        <%end%>
+      <%end%>
       <p><%= post.body%></p>
        <div id='count-<%=@post_id%>'> <%="Likes: #{ @post.likes.count}" %>  </div>
        <%= render "/button_like"%>

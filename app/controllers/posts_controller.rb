@@ -29,7 +29,7 @@ class PostsController < ApplicationController
   private
 
   def permitted_params
-    params.require(:post).permit(:body)
+    params.require(:post).permit(:body,images:[])
   end
 
 end
