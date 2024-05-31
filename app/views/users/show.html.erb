@@ -1,5 +1,10 @@
+
+<% if current_user.id == params[:id].to_i%>
+  <%= link_to 'Edit', edit_user_path(params[:id])%>
+<%end%>
+
 <div id="personal-info">
-  <%= image_tag(@user.avatar_url)%>
+  <%= image_tag(@user.avatar.attached? ? @user.avatar : @user.avatar_url)%>
   <%= "#{@user.username} page "%>
   <%= "Publications: #{@posts.count}"%>
   <%= "Friends: #{@friends}"%>
@@ -17,4 +22,3 @@
   </div>
     <%end%>
   </div>
-

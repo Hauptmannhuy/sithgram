@@ -9,6 +9,7 @@ has_many :requests, foreign_key: 'request_receiver_id'
 has_many :sent_requests, foreign_key: 'request_sender_id', class_name: 'Request'
 has_many :likes, through: :posts
 has_many :comments, through: :posts
+has_one_attached :avatar
 
   def friendships
     Friendship.where('friend_a_id = ? OR friend_b_id = ?',self.id,self.id)

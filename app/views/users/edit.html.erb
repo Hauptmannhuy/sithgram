@@ -1,0 +1,5 @@
+<%= form_with model: @user, method: :patch do |f| %>
+  <%= f.label :avatar%>
+  <%= f.file_field :avatar%>
+  <%= f.submit %>
+<% end %>
