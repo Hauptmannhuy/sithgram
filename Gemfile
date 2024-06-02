@@ -78,3 +78,4 @@ gem 'omniauth-google-oauth2'
 gem "omniauth-rails_csrf_protection", "~> 1.0"
 
 gem "image_processing", ">= 1.2"
+gem "letter_opener", group: :development
