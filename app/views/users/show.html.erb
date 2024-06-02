@@ -4,7 +4,7 @@
 <%end%>
 
 <div id="personal-info">
-  <%= image_tag(@user.avatar.attached? ? @user.avatar : @user.avatar_url)%>
+  <%= render '/avatar', user: @user%>
   <%= "#{@user.username} page "%>
   <%= "Publications: #{@posts.count}"%>
   <%= "Friends: #{@friends}"%>
