@@ -1,11 +1,11 @@
-<div class='comments-container-<%=@post_id%>'>
-  <div id='comments-section-<%=@post_id%>'>
-            <%@post.comments.each_with_index do |com,i|%>
+<div class='comments-container-<%=post.id%>'>
+  <div id='comments-section-<%=post.id%>'>
+            <%post.comments.each_with_index do |com,i|%>
               <%="#{com.user.username}: #{com.body}"%>
             <%end%>
             </div>
               <div class="comment-input"> 
-                <%= form_with model: [@post, @post.comments.build], method: :post do |f| %>
+                <%= form_with model: [post, post.comments.build], method: :post do |f| %>
                   <%= f.text_field :body, placeholder: 'Your comment...' %>
                   <%= f.text_field :user_id, value:current_user.id, hidden: true %>
                   <%= f.submit 'Create a comment' %>

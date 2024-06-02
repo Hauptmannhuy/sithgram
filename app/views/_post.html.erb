@@ -1,0 +1,11 @@
+ <div id='post'>
+       <% if post.images.attached?%>
+        <% post.images.each do |image|%>
+          <%= image_tag(image.representation(resize_to_limit: [500, 500]).processed)  %>
+        <%end%>
+      <%end%>
+      <p><%= post.body%></p>
+       <div id='count-<%=post.id%>'> <%="Likes: #{ post.likes.count}" %>  </div>
+      <%= render "/button_like", post: post%>
+    <%= render "/comment_section", post: post%>
+  </div>

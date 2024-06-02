@@ -1,20 +1,8 @@
 <div class='feed'>
   <%= link_to 'New post', new_post_path%>
   <%@posts.each_with_index do |post,index|%>
-    <%@post_id = post.id%>
-    <%@post = post%>
-    <div id='post'>
-      <p><%= post.user.username%></p>
-      <% if post.images.attached?%>
-        <% post.images.each do |image|%>
-          <%= image_tag(image.representation(resize_to_limit: [500, 500]).processed)  %>
-        <%end%>
-      <%end%>
-      <p><%= post.body%></p>
-       <div id='count-<%=@post_id%>'> <%="Likes: #{ @post.likes.count}" %>  </div>
-       <%= render "/button_like"%>
-        <%= render "/comment_section"%>
-  </div>
+      <%= render '/post', post: post%>
+    
     <%end%>
   </div>
 
