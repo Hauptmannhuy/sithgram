@@ -1,0 +1,8 @@
+.container-users {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.users-list{
+  display:flex;
+}

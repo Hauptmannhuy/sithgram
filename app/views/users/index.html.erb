@@ -1,11 +1,15 @@
-<%= render '/search-form', path: users_path %>
-
-<% @users.each_with_index do |user,i|%>
-<ul> 
-  <li>
-    <%= user.username%>
-    <%= render '/request-buttons', user: user, i:i, requested_users: @requested_users, pending_users: @pending_users%>
-  </li>
-</ul>
-<%end%>
-
+<div class="container-users">
+  <%= render '/search-form', path: users_path %>
+  <div class="users-list">
+    
+    <% @users.each_with_index do |user,i|%>
+    <ul>
+      <li>
+        <%= user.username%>
+        <%= render '/request-buttons', user: user, i:i, requested_users: @requested_users, pending_users: @pending_users%>
+      </li>
+    </ul>
+    <%end%>
+    
+  </div>
+</div>
