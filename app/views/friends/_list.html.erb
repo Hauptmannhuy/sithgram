@@ -1,4 +1,6 @@
 <%= turbo_frame_tag id="list-region" do %>
+  <%= render '/search-form', path: friends_list_path %>
+
   <% @friends.each_with_index do |fr,i| %>
     <ul>
         <li>    

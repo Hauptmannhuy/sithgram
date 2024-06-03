@@ -4,7 +4,6 @@
   align-items: center;
 }
 
- #post {
-  border: solid;
-  border-width: 1px;
+ .post {
+  padding: 16px;
 } 
