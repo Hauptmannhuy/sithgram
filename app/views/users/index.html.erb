@@ -4,26 +4,8 @@
 <ul> 
   <li>
     <%= user.username%>
-   <div id="button-request-panel-<%=i%>">
-     <% if @requested_users.keys.include?(user.id) %>
-        <%= form_with url: friends_request_path(@requested_users[user.id]),method: :delete do |f|%>
-          <%= hidden_field_tag 'post_id', i%>
-          <%= hidden_field_tag 'user_id', user.id%>
-          <%= f.submit 'Cancel request',class:'btn btn-primary' %>
-        <%end%>
-        <%elsif @pending_users.include?(user.id)%>
-        <button disabled='true' class='btn btn-primary'> Pending to accept </button>
-      <%else %>
-      <%= form_with url: friends_requests_path, method: :post do |f|%>
-          <%= hidden_field_tag 'request[request_receiver_id]', user.id %>
-          <%= hidden_field_tag 'request[request_sender_id]', current_user.id %>
-          <%= hidden_field_tag 'post_id', i%>
-          <%= f.submit 'Add friend', class:'btn btn-primary'%>
-          <%end%>
-     <%end%>
-   </div>
+    <%= render '/request-buttons', user: user, i:i, requested_users: @requested_users, pending_users: @pending_users%>
   </li>
 </ul>
-
 <%end%>
 
