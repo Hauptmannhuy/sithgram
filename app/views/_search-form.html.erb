@@ -1,0 +1,10 @@
+<div class = 'search-users'>
+<nav class=" navbar bg-dark">
+  <div class="container-fluid">
+    <%= form_with url: users_path,method: :get, class:'d-flex' do |f|%>
+    <%= f.text_field :search, placeholder:'Search', class:'form-control me-2'%>
+    <%= f.submit 'Search', class:'btn btn-outline-light'%>
+    <%end%>
+  </div>
+</nav>
+</div>

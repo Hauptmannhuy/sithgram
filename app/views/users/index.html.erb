@@ -1,7 +1,7 @@
+<%= render '/search-form' %>
 
 <% @users.each_with_index do |user,i|%>
 <ul> 
-  
   <li>
     <%= user.username%>
    <div id="button-request-panel-<%=i%>">
