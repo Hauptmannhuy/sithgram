@@ -6,6 +6,6 @@
                <%= render "/button_like", post: post%>
          <div id='count-<%=post.id%>'> <%="#{ post.likes.count}" %>  </div>
        </div>
-      <p><%= post.body%></p>
+      <p><%= post.body%></p>  
     <%= render "/comment_section", post: post%>
   </div>

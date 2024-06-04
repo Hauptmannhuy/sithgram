@@ -1,1 +1,3 @@
-<%= turbo_stream.append("comments-section-#{@post.id}", @comment)%>
+<%= turbo_stream.append("comments-section-#{@post.id}") do%>
+   <div class='comment'> <%="#{@comment.user.username.downcase}: #{@comment.body.downcase}"%></div>
+<%end%>
