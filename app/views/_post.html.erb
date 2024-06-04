@@ -2,8 +2,10 @@
        <% if post.image.attached?%>
           <%= image_tag(post.image.representation(resize_to_limit: [350, 350]).processed)  %>
       <%end%>
+       <div class="button-count">
+               <%= render "/button_like", post: post%>
+         <div id='count-<%=post.id%>'> <%="#{ post.likes.count}" %>  </div>
+       </div>
       <p><%= post.body%></p>
-       <div id='count-<%=post.id%>'> <%="Likes: #{ post.likes.count}" %>  </div>
-      <%= render "/button_like", post: post%>
     <%= render "/comment_section", post: post%>
   </div>

@@ -1,7 +1,7 @@
 <div id='like-btn-<%=post.id%>'>
          <% if post.user_liked?(current_user.id) %>
-      <%= button_to '♥',likes_remove_path('like' => {user_id:current_user.id,post_id:post.id}) %>
+      <%= button_to '♥',likes_remove_path('like' => {user_id:current_user.id,post_id:post.id}),class:'btn btn-primary rounded-circle p-2 lh-1' %>
         <%else%>
-      <%= button_to '♥',likes_add_path('like' => {user_id:current_user.id,post_id:post.id})  %>
+      <%= button_to '♥',likes_add_path('like' => {user_id:current_user.id,post_id:post.id}),class:'btn btn-outline-primary rounded-circle p-2 lh-1'  %>
          <%end%>
 </div>

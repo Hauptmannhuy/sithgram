@@ -1,5 +1,5 @@
-<%= turbo_stream.update("count-#{@post.id}", "Likes: #{@likes}") %>
+<%= turbo_stream.update("count-#{@post.id}", "#{@likes}") %>
 
 <%= turbo_stream.update("like-btn-#{@post.id}") do %>
-  <%= button_to '♥', likes_remove_path('like' => { user_id: current_user.id, post_id: @post.id }) %>
+  <%= button_to '♥', likes_remove_path('like' => { user_id: current_user.id, post_id: @post.id }),class:'btn btn-primary rounded-circle p-2 lh-1' %>
 <%end%>

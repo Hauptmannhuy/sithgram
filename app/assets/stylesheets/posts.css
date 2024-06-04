@@ -7,3 +7,8 @@
  .post {
   padding: 16px;
 } 
+
+.button-count{
+  display: flex;
+  gap: 5px;
+}
