@@ -5,4 +5,15 @@
 }
 .users-list{
   display:flex;
+  flex-wrap: wrap;
+  padding-right: 35rem;
+  padding-left: 35rem;
+}
+
+.user-req-tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  gap: 3px;
 }

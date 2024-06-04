@@ -11,3 +11,8 @@ User.create!(username:"Misha",email:"misha@email.com",password:'123456')
 User.create!(username:"Dima",email:"dima@email.com",password:'123456')
 User.create!(username:"Sasha",email:"sasha@email.com",password:'123456')
 User.create!(username:"Dasha",email:"dasha@email.com",password:'123456')
+
+usernames = ['24adsf','stfu','gaddd','lolek','zealot','trol','gajin','samurai','schutze','strelok']
+usernames.each do |n|
+  User.create(username:n,email:"#{n}@email.com",password:'123456')
+end
