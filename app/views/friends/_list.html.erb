@@ -1,6 +1,5 @@
 <%= turbo_frame_tag id="list-region" do %>
   <%= render '/search-form', path: friends_list_path %>
- <%# <div class="friends-list"> %>
    
    <% @friends.each_with_index do |fr,i| %>
            <div class="friend">
@@ -9,6 +8,5 @@
              <%= f.submit "Delete friend" %>
                       <%end%>
            </div>
- <%# </div> %>
   <%end%>
 <%end%>

@@ -1,8 +1,6 @@
  <div class='post border-bottom'>
-       <% if post.images.attached?%>
-        <% post.images.each do |image|%>
-          <%= image_tag(image.representation(resize_to_limit: [500, 500]).processed)  %>
-        <%end%>
+       <% if post.image.attached?%>
+          <%= image_tag(post.image.representation(resize_to_limit: [350, 350]).processed)  %>
       <%end%>
       <p><%= post.body%></p>
        <div id='count-<%=post.id%>'> <%="Likes: #{ post.likes.count}" %>  </div>
