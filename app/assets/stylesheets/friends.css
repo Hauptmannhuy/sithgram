@@ -1,0 +1,11 @@
+.friends-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.friend {
+  display: flex;
+  flex-direction: column;
+  padding-left: 14px;
+}

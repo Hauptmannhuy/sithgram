@@ -1,14 +1,14 @@
 <%= turbo_frame_tag id="list-region" do %>
   <%= render '/search-form', path: friends_list_path %>
-
-  <% @friends.each_with_index do |fr,i| %>
-    <ul>
-        <li>    
-          <%=link_to "#{fr.username}", user_path(fr.id), data: {turbo_frame: "_top"}%>     
-        </li>
-        <%= form_with url: friendship_path(@friendships[i].id),method: :delete do |f|%>
-          <%= f.submit "Delete friend" %>
-        <%end%>
-    </ul>
+ <%# <div class="friends-list"> %>
+   
+   <% @friends.each_with_index do |fr,i| %>
+           <div class="friend">
+             <%=link_to "#{fr.username}", user_path(fr.id), data: {turbo_frame: "_top"}%>
+                      <%= form_with url: friendship_path(@friendships[i].id),method: :delete do |f|%>
+             <%= f.submit "Delete friend" %>
+                      <%end%>
+           </div>
+ <%# </div> %>
   <%end%>
 <%end%>
