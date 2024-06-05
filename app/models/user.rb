@@ -29,7 +29,8 @@ has_one_attached :avatar
 
   def relative_posts
     list = self.friends_ids << self.id
-    Post.where(user_id: list)
+    # Post.includes(:user).where(user_id: list).references(:user)
+    Post.where(user_id: list).includes(:user)
   end
   
   def self.from_omniauth(auth)
