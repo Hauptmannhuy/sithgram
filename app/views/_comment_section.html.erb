@@ -7,7 +7,7 @@
 
             <%end%>
             </div>
-              <div class="comment-input-<%=post.id%>"> 
+              <div id="comment-input-<%=post.id%>"> 
                 <%= form_with model: [post, post.comments.build], method: :post do |f| %>
                   <%= f.text_field :body, placeholder: 'Your comment...' %>
                   <%= f.text_field :user_id, value:current_user.id, hidden: true %>

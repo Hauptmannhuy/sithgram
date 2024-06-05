@@ -27,11 +27,6 @@ has_one_attached :avatar
     User.where(id:list)
   end
 
-  def find_not_friends_of_user
-    list = self.friends_ids << self.id
-    User.where.not(id: list)
-  end
-
   def relative_posts
     list = self.friends_ids << self.id
     Post.where(user_id: list)

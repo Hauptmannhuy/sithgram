@@ -6,7 +6,7 @@
         <div class="user-req-tab">
           <%= render '/avatar',user: user%>
           <div><%= user.username%></div>
-          <%= render '/request-buttons', user: user, i:i, requested_users: @requested_users, pending_users: @pending_users%>
+          <%= render '/request-buttons', user: user, i:i, requested_users: @requested_users, pending_users: @pending_users unless user.id == current_user.id || @friend_ids.include?(user.id) %>
         </div>
     <%end%>
     
