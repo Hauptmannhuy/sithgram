@@ -4,7 +4,7 @@
 <%end%>
 
 <div id="personal-info">
-  <%= render '/avatar', user: @user%>
+  <%= render '/avatar', user: @user, avatar: 'avatar-small'%>
   <%= "#{@user.username} page "%>
   <%= "Publications: #{@posts.count}"%>
   <%= "Friends: #{@friends}"%>

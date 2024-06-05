@@ -1,4 +1,8 @@
  <div class='post border-bottom'>
+        <div class="post-user-info">
+          <%=render '/avatar', user: post.user, avatar:'avatar-post'%>
+            <div><%= post.user.username%></div>
+            </div>
        <% if post.image.attached?%>
           <%= image_tag(post.image.representation(resize_to_limit: [350, 350]).processed)  %>
       <%end%>

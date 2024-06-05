@@ -4,7 +4,7 @@
     
     <% @users.each_with_index do |user,i|%>
         <div class="user-req-tab">
-          <%= render '/avatar',user: user%>
+          <%= render '/avatar',user: user, avatar: 'avatar-small'%>
           <div><%= user.username%></div>
           <%= render '/request-buttons', user: user, i:i, requested_users: @requested_users, pending_users: @pending_users unless user.id == current_user.id || @friend_ids.include?(user.id) %>
         </div>

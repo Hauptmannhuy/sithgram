@@ -4,8 +4,10 @@
   align-items: center;
 }
 
- .post {
+ .post{
   padding: 16px;
+  display: flex;
+  flex-direction: column;
 } 
 
 .button-count{
@@ -13,6 +15,7 @@
   gap: 5px;
 }
 
-. {
-
+.post-user-info{
+  display:flex;
+  gap: 6px
 }
