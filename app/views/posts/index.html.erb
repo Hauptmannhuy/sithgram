@@ -4,5 +4,9 @@
       <%= render '/post', post: post%>
     
     <%end%>
+
+    <% if @posts.empty?%>
+      <h1 class="content-notification">You haven't created any posts or followed someone to see feed yet.</h1>
+    <%end%>
   </div>
 
