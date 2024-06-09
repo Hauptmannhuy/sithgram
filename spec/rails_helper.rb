@@ -32,7 +32,10 @@ end
 RSpec.configure do |config|
   config.include Devise::Test::IntegrationHelpers, type: :request
   config.formatter = :documentation
-
+  
+  # config.include FactoryBot::Syntax::Methods
+  # FactoryBot.definition_file_paths = [File.expand_path('../factories', __FILE__)]
+  # FactoryBot.find_definitions
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_paths = [

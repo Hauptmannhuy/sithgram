@@ -1,5 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Friendship, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  context 'belongs to' do
+    it 'user' do
+      expect((Friendship).reflect_on_association(:friend_a).class_name).to eq('User')        
+    end
+  end
 end

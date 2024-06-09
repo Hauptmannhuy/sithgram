@@ -79,3 +79,5 @@ gem "omniauth-rails_csrf_protection", "~> 1.0"
 
 gem "image_processing", ">= 1.2"
 gem "letter_opener", group: :development
+
+gem "factory_bot", "~> 6.4"
