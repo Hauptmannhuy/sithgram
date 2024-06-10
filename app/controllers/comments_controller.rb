@@ -2,11 +2,13 @@ class CommentsController < ApplicationController
   def create
     @post = Post.find(params[:post_id])
    @comment = @post.comments.new(permitted_params)
-   if @comment.save
-    respond_to do |format|
-      format.turbo_stream
+    if @comment.save
+      respond_to do |format|
+        format.turbo_stream
+      end
+    else
+      redirect_to posts_path
     end
-  end
   end
 
   def destroy

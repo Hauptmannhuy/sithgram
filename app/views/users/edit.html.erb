@@ -1,6 +1,6 @@
 <%= form_with model: @user,class: 'edit-profile', method: :patch do |f| %>
 
-  <%= render '/error_explanation', user: @user %>
+  <%= render '/error_explanation', object: @user %>
 
   <%= f.label :Username %>
   <%= f.text_field :username%>

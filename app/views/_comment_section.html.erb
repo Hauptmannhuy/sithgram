@@ -8,10 +8,10 @@
             <%end%>
             </div>
               <div id="comment-input-<%=post.id%>"> 
-                <%= form_with model: [post, post.comments.build], method: :post do |f| %>
-                  <%= f.text_field :body, placeholder: 'Your comment...' %>
+                <%= form_with model: [post, post.comments.build],data:{controller: 'comment'}, method: :post do |f| %>
+                  <%= f.text_field :body, placeholder: 'Your comment...', data:{comment_target:'comment'} %>
                   <%= f.text_field :user_id, value:current_user.id, hidden: true %>
-                  <%= f.submit 'Create a comment' %>
+                  <%= f.submit 'Create a comment', data:{action:'click->comment#update'} %>
                 <%end%>
               </div>
           </div>
