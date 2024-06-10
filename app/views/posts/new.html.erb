@@ -1,9 +1,10 @@
-<%= form_with model: @post, method: :post do |f|%>
+<%= render '/error_explanation', object: @post%>
+
+<%= form_with model: @post, class: 'post_create', method: :post do |f|%>
   <div>
-  <%= f.label :description %>
-  <%= f.text_field :body %>
-  <%= f.label :image%>
+    <%= f.label :description %>
+    <%= f.text_field :body %>
+  </div>
   <%= f.file_field :image%>
   <%= f.submit%>
-  </div>
 <%end%>

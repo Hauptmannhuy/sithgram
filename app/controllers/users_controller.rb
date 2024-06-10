@@ -14,8 +14,11 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.update(permitted_params)
+   if @user.update(permitted_params)
     redirect_to @user
+   else
+    render :edit, status: :unprocessable_entity
+   end
   end
 
   def show
@@ -28,7 +31,7 @@ class UsersController < ApplicationController
   private
 
   def permitted_params
-    params.require(:user).permit(:avatar)
+    params.require(:user).permit(:avatar, :username)
   end
 
 end

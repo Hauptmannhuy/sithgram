@@ -1,5 +1,10 @@
-<%= form_with model: @user, method: :patch do |f| %>
+<%= form_with model: @user,class: 'edit-profile', method: :patch do |f| %>
+
+  <%= render '/error_explanation', user: @user %>
+
+  <%= f.label :Username %>
+  <%= f.text_field :username%>
   <%= f.label :avatar%>
   <%= f.file_field :avatar%>
-  <%= f.submit %>
+  <%= f.submit 'Change' %>
 <% end %>

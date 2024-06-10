@@ -26,7 +26,16 @@
   background-color: rgb(47, 52, 56);
   margin-left: auto;
   margin-right: auto;
+  margin-top: 1em;
   max-width: fit-content  ;
   border-radius: 5%;
   font-size: 18px;
+}
+
+.edit-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 12px;
+  gap: 10px;
 }
