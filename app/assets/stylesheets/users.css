@@ -17,3 +17,20 @@
   padding: 10px;
   gap: 3px;
 }
+
+.user-container {
+  gap: 20px;
+  display: flex;
+  justify-content: center;
+  padding: 1em 4em 1em 4em;
+  background-color: rgb(47, 52, 56);
+  margin-left: auto;
+  margin-right: auto;
+  max-width: fit-content  ;
+  border-radius: 5%;
+  font-size: 18px;
+}
+
+.personal-info {
+
+}

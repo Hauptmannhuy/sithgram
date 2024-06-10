@@ -3,12 +3,16 @@
   <%= link_to 'Edit', edit_user_path(params[:id])%>
 <%end%>
 
-<div id="personal-info">
+<div class="user-container">
   <%= render '/avatar', user: @user, avatar: 'avatar-small'%>
-  <%= "#{@user.username} page "%>
-  <%= "Publications: #{@posts.count}"%>
-  <%= "Friends: #{@friends}"%>
-</div>
+  <div class="personal-info">
+    <div id="user-personal-name"><%= "#{@user.username}"%></div>
+    <div id="user-personal-stats">
+      <%= "Publications: #{@posts.count}"%>
+      <%= "Friends: #{@friends}"%>
+    </div>
+    </div>
+  </div>
 <div class='feed'>
   <%@posts.each_with_index do |post,index|%>
    <%= render '/post', post: post%>
