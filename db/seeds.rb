@@ -7,12 +7,5 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-User.create!(username:"Misha",email:"misha@email.com",password:'123456')
-User.create!(username:"Dima",email:"dima@email.com",password:'123456')
-User.create!(username:"Sasha",email:"sasha@email.com",password:'123456')
-User.create!(username:"Dasha",email:"dasha@email.com",password:'123456')
 
-usernames = ['24adsf','stfu','gaddd','lolek','zealot','trol','gajin','samurai','schutze','strelok']
-usernames.each do |n|
-  User.create(username:n,email:"#{n}@email.com",password:'123456')
-end
+20.times{User.create(username: Faker::Internet.username(specifier: 5..8), email: Faker::Internet.email, password: 123456)}
