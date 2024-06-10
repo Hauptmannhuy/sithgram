@@ -1,5 +1,4 @@
 <div class='feed'>
-  <%= link_to 'New post', new_post_path%>
   <%@posts.each_with_index do |post,index|%>
       <%= render '/post', post: post%>
     

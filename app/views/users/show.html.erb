@@ -1,8 +1,3 @@
-
-<% if current_user.id == params[:id].to_i%>
-  <%= link_to 'Edit', edit_user_path(params[:id])%>
-<%end%>
-
 <div class="user-container">
   <%= render '/avatar', user: @user, avatar: 'avatar-small'%>
   <div class="personal-info">
