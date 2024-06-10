@@ -28,8 +28,7 @@ has_one_attached :avatar
   end
 
   def relative_posts
-    list = self.friends_ids << self.id
-    # Post.includes(:user).where(user_id: list).references(:user)
+    list = [self.friends_ids,self.sent_requests.pluck(:request_receiver_id)].flatten << self.id
     Post.where(user_id: list).includes(:user)
   end
   
