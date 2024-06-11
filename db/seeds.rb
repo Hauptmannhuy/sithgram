@@ -9,3 +9,4 @@
 #   end
 
 20.times{User.create(username: Faker::Internet.username(specifier: 5..8), email: Faker::Internet.email, password: 123456)}
+
