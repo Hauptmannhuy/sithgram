@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  include FileTypeValidator
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -11,7 +12,7 @@ has_many :likes, through: :posts
 has_many :comments, through: :posts
 has_one_attached :avatar
 
-validates :username, presence: true, length: {minimum: 4, maximum: 10}
+validates :username, presence: true, length: { maximum: 20}
 
   def friendships
     Friendship.where('friend_a_id = ? OR friend_b_id = ?',self.id,self.id)

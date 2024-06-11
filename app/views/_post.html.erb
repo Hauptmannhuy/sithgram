@@ -4,7 +4,7 @@
             <div><%= post.user.username%></div>
             </div>
        <% if post.image.attached?%>
-          <%= image_tag(post.image.representation(resize_to_limit: [350, 350]).processed)  %>
+          <%= image_tag(post.image.variant(resize_to_limit: [350, 350]))  %>
       <%end%>
        <div class="button-count">
                <%= render "/button_like", post: post%>
