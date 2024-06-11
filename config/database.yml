@@ -81,6 +81,7 @@ test:
 #
 production:
   <<: *default
+  url:  <%= ENV["DATABASE_URL"]%>
   database: sithgram_production
   username: sithgram
   password: <%= ENV["SITHGRAM_DATABASE_PASSWORD"] %>
