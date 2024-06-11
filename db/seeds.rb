@@ -9,3 +9,12 @@
 #   end
 
 20.times{User.create(username: Faker::Internet.username(specifier: 5..8), email: Faker::Internet.email, password: 123456)}
+User.create(username:'test', email: 'test@email.com', password:123456)
+
+4.times do |i|
+  Friendship.create(friend_a_id:User.last.id,friend_b_id:i)
+end
+
+(6..8).each do |i|
+  Request.create(request_sender_id: i, request_receiver_id: User.last.id)
+end
