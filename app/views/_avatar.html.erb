@@ -3,6 +3,6 @@
   <% elsif !user.avatar_url.nil?%>
     <%= image_tag(user.avatar_url, id: avatar)%>
   <%else%>
-  <%= image_tag(url_for("/assets/user.png"), id: avatar)%>
+  <%= image_tag(asset_path(("user.png")), id: avatar)%>
   <%end%>
   
