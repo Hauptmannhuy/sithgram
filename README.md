@@ -1,24 +1,8 @@
 # README
+Designed and coded social app clone
+Integrated tools such asHotwire, Stimulus, and otherthird-party systems:Devise,OmniAuth, Active storage
+Represents basic social app features, such as creating posts and comments, like posts, etc.
+Developed unit and integration tests with Rspec for key functionalities to ensure app quality.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+*
