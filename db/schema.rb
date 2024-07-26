@@ -73,9 +73,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_31_113234) do
 
   create_table "requests", force: :cascade do |t|
     t.integer "request_sender_id"
+    t.integer "request_receiver_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "request_receiver_id"
   end
 
   create_table "users", force: :cascade do |t|
