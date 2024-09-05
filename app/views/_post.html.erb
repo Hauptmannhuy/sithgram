@@ -1,4 +1,5 @@
  <div class='post border-bottom'>
+          <%= button_to 'X', post_path(post.id), method: :delete%>
         <div class="post-user-info">
           <%=render '/avatar', user: post.user, avatar:'avatar-post'%>
             <div><%= post.user.username%></div>

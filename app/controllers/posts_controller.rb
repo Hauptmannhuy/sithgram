@@ -12,10 +12,11 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = current_user.posts.build(permitted_params)
-    if @post.save
+    result = PublishPost.call(params: permitted_params, user: current_user)
+    if result.success?
       redirect_to posts_path
     else
+      @post = result.post
       render :new, status: :unprocessable_entity
     end
   end
@@ -24,6 +25,8 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    DeletePost.call(id: params[:id])
+    redirect_to posts_path
   end
 
   private

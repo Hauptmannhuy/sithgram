@@ -8,10 +8,10 @@ class RequestsController < ApplicationController
   def destroy
     @post_id = params[:post_id]
     @user_id = params[:user_id]
-   Request.destroy(params[:id]) 
-   respond_to do |format|
-    format.turbo_stream
-  end
+    CancelFriendRequest.call(id: params[:id])
+    respond_to do |format|
+      format.turbo_stream
+    end
   end
 
   def create
@@ -19,7 +19,7 @@ class RequestsController < ApplicationController
     @post_id = params[:post_id]
     @receiver = User.find(permitted_params[:request_receiver_id])
     @user_id = @receiver.id
-   @request = @receiver.requests.create!(permitted_params)
+    @request = SendFriendRequest.call(params: permitted_params).request
     respond_to do |format|
       format.turbo_stream
     end

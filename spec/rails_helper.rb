@@ -31,8 +31,10 @@ rescue ActiveRecord::PendingMigrationError => e
 end
 RSpec.configure do |config|
   config.include Devise::Test::IntegrationHelpers, type: :request
+  config.include FactoryBot::Syntax::Methods
   config.formatter = :documentation
-  
+
+
   # config.include FactoryBot::Syntax::Methods
   # FactoryBot.definition_file_paths = [File.expand_path('../factories', __FILE__)]
   # FactoryBot.find_definitions
