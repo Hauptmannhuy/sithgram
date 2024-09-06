@@ -1,11 +1,10 @@
 class FriendshipsController < ApplicationController
   def create
-    current_user.requests.destroy_by(request_receiver_id: permitted_params[:friend_a_id], request_sender_id: permitted_params[:friend_b_id])
-    Friendship.create!(permitted_params)
+    MakeFriend.call(params: permitted_params)
   end
 
   def destroy
-    Friendship.destroy(params[:id])
+    DeleteFriend.call(id:params[:id])
     redirect_to friends_list_url
   end
   private

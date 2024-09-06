@@ -1,13 +1,18 @@
 class CommentsController < ApplicationController
   def create
-    @post = Post.find(params[:post_id])
-   @comment = @post.comments.new(permitted_params)
-    if @comment.save
+    result = PostComment.call(post_id: params[:post_id], params: permitted_params)
+    if result.success?
       respond_to do |format|
+        @post = result.post
+        @comment = result.comment
         format.turbo_stream
       end
     else
-      redirect_to posts_path
+      if !result.error.nil?
+        redirect_to posts_path, notice: result.error
+      else
+        redirect_to posts_path
+      end
     end
   end
 

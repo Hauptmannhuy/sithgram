@@ -11,7 +11,4 @@ describe CancelFriendRequest do
       expect { CancelFriendRequest.call(id: @request.id) }.to change{@sender.sent_requests.empty?}.from(false).to(true)
     end
   end
-
-
-
 end

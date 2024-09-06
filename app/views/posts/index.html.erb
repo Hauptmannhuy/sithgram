@@ -1,4 +1,8 @@
 <div class='feed'>
+  <% if flash[:notice] %>
+  <div class="notice"><%= flash[:notice] %></div>
+<% end %>
+
   <%@posts.each_with_index do |post,index|%>
       <%= render '/post', post: post%>
     

@@ -83,3 +83,4 @@ gem "letter_opener", group: :development
 gem 'faker'
 gem "interactor", "~> 3.0"
 gem "factory_bot_rails"
+gem 'redis'
